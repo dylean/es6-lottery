@@ -59,37 +59,44 @@
 /* 2 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 
 	{
-	  var a = void 0,
-	      b = void 0,
-	      rest = void 0;
-	  a = 1;
-	  b = 2;
+	  var regex = new RegExp('xyz', 'i');
+	  var regex2 = new RegExp(/xyz/i);
 
-	  console.log(a, b);
+	  console.log(regex.test('xyz123'), regex2.test('xyz123'));
+
+	  var regex3 = new RegExp(/xyz/ig, 'i');
+	  console.log(regex3.flags);
 	}
 
 	{
-	  var _a = void 0,
-	      _b = void 0,
-	      _rest = void 0;
-	  _a = 1;
-	  _b = 2;
-	  _rest = [3, 4, 5, 6];
+	  var s = 'bbb_bbb_b';
+	  var a1 = /b+/g;
+	  var a2 = new RegExp('b+', 'y');
+	  //g 和 y 的区别。g不强调下一个字符开始匹配。会忽略下划线。
+	  console.log('one', a1.exec(s), a2.exec(s));
+	  console.log('two', a1.exec(s), a2.exec(s));
 
-	  console.log(_a, _b, _rest);
+	  console.log(a1.sticky, a2.sticky); // 判断是否开启y
 	}
 
 	{
-	  var _a2 = void 0,
-	      _b2 = void 0;
-	  var _a$b = { a: 1, b: 2 };
-	  _a2 = _a$b.a;
-	  _b2 = _a$b.b;
+	  // u unicode
+	  console.log('u-1', /^\uD83D/.test('\uD83D\uDC2A')); //理解成两个字符，4个字节
+	  console.log('u-1', /^(?:\uD83D(?![\uDC00-\uDFFF]))/.test('\uD83D\uDC2A')); //4个字节当做一个字符
 
-	  console.log(_a2, _b2);
+	  console.log(/\u{61}/.test('a')); // 匹配小于两个字节长度的字符，换行符 回车符 行分隔符 段分隔符也不能识别
+	  console.log(/a/.test('a'));
+
+	  console.log('\uD842\uDFB7');
+	  var _s = '𠮷';
+	  console.log('u', /^.$/.test(_s));
+	  console.log('u-2', /^(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])$/.test(_s));
+	  // 大于两个字节 加上 u 修饰符去识别
+
+	  console.log('test', /(?:\uD842\uDFB7){2}/.test('𠮷𠮷'));
 	}
 
 /***/ })
