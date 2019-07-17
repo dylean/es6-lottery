@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d55f742c-6913-4261-aebb-f758891e2b45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/js/class/lesson6.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/js/class/lesson7.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/js/class/lesson7.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/index.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/public/js/cp.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/public/js/cp.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/server/views/index.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,11 +40,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/class/lesson6.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/js/class/lesson7.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="351">
-              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+              <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -55,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/app/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="48">
-              <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -118,8 +125,9 @@
         <option value="$PROJECT_DIR$/app/js/class/lesson4.js" />
         <option value="$PROJECT_DIR$/app/js/class/lesson5.js" />
         <option value="$PROJECT_DIR$/app/views/index.ejs" />
-        <option value="$PROJECT_DIR$/app/js/index.js" />
         <option value="$PROJECT_DIR$/app/js/class/lesson6.js" />
+        <option value="$PROJECT_DIR$/app/js/index.js" />
+        <option value="$PROJECT_DIR$/app/js/class/lesson7.js" />
       </list>
     </option>
   </component>
@@ -243,7 +251,7 @@
       <updated>1563065445233</updated>
       <workItem from="1563065446861" duration="3634000" />
       <workItem from="1563155006063" duration="4264000" />
-      <workItem from="1563258913734" duration="19019000" />
+      <workItem from="1563258913734" duration="22598000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1563259889916</created>
@@ -287,11 +295,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563323950648</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="数组扩展">
+      <created>1563325987888</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1563325987888</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26917000" />
+    <option name="totallyTimeSpent" value="30496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="763" y="51" width="780" height="760" extended-state="0" />
@@ -344,7 +359,8 @@
     <MESSAGE value="解构、正则扩展" />
     <MESSAGE value="字符串模板" />
     <MESSAGE value="新增数值方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增数值方法" />
+    <MESSAGE value="数组扩展" />
+    <option name="LAST_COMMIT_MESSAGE" value="数组扩展" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/views/error.ejs">
@@ -514,17 +530,24 @@
     <entry file="file://$PROJECT_DIR$/server/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/index.js">
+    <entry file="file://$PROJECT_DIR$/app/js/class/lesson6.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        <state relative-caret-position="327">
+          <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/class/lesson6.js">
+    <entry file="file://$PROJECT_DIR$/app/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/class/lesson7.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
-          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
         </state>
       </provider>
     </entry>
