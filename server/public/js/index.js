@@ -61,66 +61,18 @@
 
 	'use strict';
 
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+	//proxy 代理
+	//reflect 反射
 	{
-	  // 声明
-	  var a1 = Symbol();
-	  var a2 = Symbol();
-	  //a1 a2 独一无二 永远不可能相等
-	  console.log(a1 === a2);
-	  var a3 = Symbol.for('a3');
-	  var a4 = Symbol.for('a3');
-	  console.log(a3 === a4);
-	}
+	  var obj = {
+	    time: '2017-03-11',
+	    name: 'net',
+	    _r: 123
+	  };
 
-	{
-	  var _obj;
+	  var monitor = new Proxy(obj, {});
 
-	  // 作用
-	  var _a = Symbol.for('abc');
-	  var obj = (_obj = {}, _defineProperty(_obj, _a, '123'), _defineProperty(_obj, 'abc', 345), _defineProperty(_obj, 'c', 456), _obj);
-	  console.log('obj', obj);
-
-	  // let of for in 取不到 Symbol 属性
-	  var _iteratorNormalCompletion = true;
-	  var _didIteratorError = false;
-	  var _iteratorError = undefined;
-
-	  try {
-	    for (var _iterator = Object.entries(obj)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      var _step$value = _slicedToArray(_step.value, 2),
-	          key = _step$value[0],
-	          value = _step$value[1];
-
-	      console.log('let of', key, value);
-	    }
-	  } catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion && _iterator.return) {
-	        _iterator.return();
-	      }
-	    } finally {
-	      if (_didIteratorError) {
-	        throw _iteratorError;
-	      }
-	    }
-	  }
-
-	  Object.getOwnPropertySymbols(obj).forEach(function (item) {
-	    console.log(obj[item]);
-	  });
-
-	  console.log('reflect', Reflect.ownKeys(obj));
-	  // es6 新增加，返回 Symbol 和 非 Symbol 的属性
-	  Reflect.ownKeys(obj).forEach(function (item) {
-	    console.log('ownKeys', item, obj[item]);
-	  });
+	  monitor;
 	}
 
 /***/ })
