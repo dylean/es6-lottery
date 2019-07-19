@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d55f742c-6913-4261-aebb-f758891e2b45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/js/class/lesson14.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/js/class/lesson15.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/index.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/public/js/cp.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/public/js/cp.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/server/views/index.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/class/lesson14.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+            <state relative-caret-position="504">
+              <caret line="48" column="3" lean-forward="true" selection-start-line="48" selection-start-column="3" selection-end-line="48" selection-end-column="3" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -45,14 +42,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/js/class/lesson15.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="95" column="24" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state>
+              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -114,9 +117,10 @@
         <option value="$PROJECT_DIR$/app/js/class/lesson11.js" />
         <option value="$PROJECT_DIR$/app/js/class/lesson12.js" />
         <option value="$PROJECT_DIR$/app/js/class/lesson13.js" />
-        <option value="$PROJECT_DIR$/app/js/index.js" />
         <option value="$PROJECT_DIR$/app/views/index.ejs" />
         <option value="$PROJECT_DIR$/app/js/class/lesson14.js" />
+        <option value="$PROJECT_DIR$/app/js/index.js" />
+        <option value="$PROJECT_DIR$/app/js/class/lesson15.js" />
       </list>
     </option>
   </component>
@@ -258,7 +262,7 @@
       <workItem from="1563065446861" duration="3634000" />
       <workItem from="1563155006063" duration="4264000" />
       <workItem from="1563258913734" duration="26775000" />
-      <workItem from="1563495522033" duration="14774000" />
+      <workItem from="1563495522033" duration="16714000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1563259889916</created>
@@ -386,11 +390,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563518424306</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Iterator">
+      <created>1563521685690</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1563521685690</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49447000" />
+    <option name="totallyTimeSpent" value="51387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="755" y="30" width="780" height="760" extended-state="0" />
@@ -478,7 +489,8 @@
     <MESSAGE value="class 和对象" />
     <MESSAGE value="test" />
     <MESSAGE value="promise primise.all promise.race" />
-    <option name="LAST_COMMIT_MESSAGE" value="promise primise.all promise.race" />
+    <MESSAGE value="Iterator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iterator" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/views/error.ejs">
@@ -715,16 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -734,11 +736,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/class/lesson14.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        <state relative-caret-position="504">
+          <caret line="48" column="3" lean-forward="true" selection-start-line="48" selection-start-column="3" selection-end-line="48" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/class/lesson15.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="95" column="24" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
         </state>
       </provider>
     </entry>
