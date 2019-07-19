@@ -61,125 +61,100 @@
 
 	'use strict';
 
-	//Promise
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 	/*
-	# 什么是异步？
-	- 回调、事件触发
-	# Promise的作用
-	- 解决异步操作问题
-	# Promise的基本用法
+	什么是Iterator接口
+	Iterator基本用法
+	for...of
 	 */
 	{
-	  //es5中回调解决异步
-	  //ajax过程
-	  var ajax = function ajax(callback) {
-	    console.log('执行1');
-	    setTimeout(function () {
-	      callback && callback.call();
-	    }, 1000);
-	  };
-	  ajax(function () {
-	    console.log('timeout1');
-	  });
+	  var arr = ['hello', 'world'];
+	  var map = arr[Symbol.iterator]();
+	  console.log(map.next());
+	  console.log(map.next());
+	  console.log(map.next());
 	}
 
 	{
-	  var _ajax = function _ajax() {
-	    console.log('执行2');
-	    return new Promise(function (resolve, reject) {
-	      setTimeout(function () {
-	        resolve();
-	      }, 1000);
-	    });
-	  };
-	  _ajax().then(function () {
-	    console.log('timeout2');
-	  });
-	}
-
-	{
-	  var _ajax2 = function _ajax2() {
-	    console.log('执行3');
-	    return new Promise(function (resolve, reject) {
-	      setTimeout(function () {
-	        resolve();
-	      }, 1000);
-	    });
-	  };
-
-	  _ajax2().then(function () {
-	    return new Promise(function (resolve, reject) {
-	      resolve();
-	    }, 2000);
-	  }).then(function () {
-	    console.log('timeout3');
-	  });
-	}
-
-	{
-	  var _ajax3 = function _ajax3(num) {
-	    console.log('执行4');
-	    return new Promise(function (resolve, reject) {
-	      if (num > 5) {
-	        resolve();
-	      } else {
-	        throw new Error('出错了');
+	  var obj = _defineProperty({
+	    start: [1, 3, 2],
+	    end: [7, 9, 8]
+	  }, Symbol.iterator, function () {
+	    var self = this;
+	    var index = 0;
+	    var arr = [].concat(_toConsumableArray(self.start), _toConsumableArray(self.end));
+	    var len = arr.length;
+	    return {
+	      next: function next() {
+	        if (index < len) {
+	          return {
+	            value: arr[index++],
+	            done: false
+	          };
+	        } else {
+	          return {
+	            value: arr[index++],
+	            done: true
+	          };
+	        }
 	      }
-	    });
-	  };
-	  _ajax3(3).then(function () {
-	    console.log('log', 6);
-	  }).catch(function (err) {
-	    console.log('catch', err);
+	    };
 	  });
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+
+	  try {
+	    for (var _iterator = obj[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var key = _step.value;
+
+	      console.log(key);
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator.return) {
+	        _iterator.return();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
 	}
 
 	{
-	  //所有图片加载完再添加到页面
-	  var loadImg = function loadImg(src) {
-	    return new Promise(function (resolve, reject) {
-	      var img = document.createElement('img');
-	      img.src = src;
-	      img.onload = function () {
-	        resolve(img);
-	      };
-	      img.onerror = function (err) {
-	        reject(err);
-	      };
-	    });
-	  };
+	  var _arr = ['hello', 'world'];
+	  var _iteratorNormalCompletion2 = true;
+	  var _didIteratorError2 = false;
+	  var _iteratorError2 = undefined;
 
-	  var showImgs = function showImgs(imgs) {
-	    imgs.forEach(function (img) {
-	      document.body.appendChild(img);
-	    });
-	  };
+	  try {
+	    for (var _iterator2 = _arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	      var value = _step2.value;
 
-	  Promise.all([loadImg('https://i4.buimg.com/567571/df1ef0720bea6832.png'), loadImg('https://i4.buimg.com/567751/2b07ee25b08930ba.png'), loadImg('https://i2.muimg.com/567751/5eb8190d6b2a1c9c.png')]).then(showImgs);
-	}
-
-	{
-	  //有一个图片加载完就添加到页面
-	  var _loadImg = function _loadImg(src) {
-	    return new Promise(function (resolve, reject) {
-	      var img = document.createElement('img');
-	      img.src = src;
-	      img.onload = function () {
-	        resolve(img);
-	      };
-	      img.onerror = function (err) {
-	        reject(err);
-	      };
-	    });
-	  };
-
-	  var _showImgs = function _showImgs(img) {
-	    var p = document.createElement('p');
-	    p.appendChild(img);
-	    document.body.appendChild(p);
-	  };
-
-	  Promise.race([_loadImg('https://i4.buimg.com/567571/df1ef0720bea6832.png'), _loadImg('https://i4.buimg.com/567751/2b07ee25b08930ba.png'), _loadImg('https://i2.muimg.com/567751/5eb8190d6b2a1c9c.png')]).then(_showImgs);
+	      console.log(value);
+	    }
+	  } catch (err) {
+	    _didIteratorError2 = true;
+	    _iteratorError2 = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	        _iterator2.return();
+	      }
+	    } finally {
+	      if (_didIteratorError2) {
+	        throw _iteratorError2;
+	      }
+	    }
+	  }
 	}
 
 /***/ })
