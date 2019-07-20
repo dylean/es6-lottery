@@ -1,50 +1,45 @@
-/*
-什么是Iterator接口
-Iterator基本用法
-for...of
- */
 {
-  let arr = ['hello', 'world'];
-  let map = arr[Symbol.iterator]();
+  let arr=['hello','world'];
+  let map=arr[Symbol.iterator]();
   console.log(map.next());
   console.log(map.next());
   console.log(map.next());
 }
 
 {
-  let obj = {
-    start: [1, 3, 2],
-    end: [7, 9, 8],
-    [Symbol.iterator]() {
-      let self = this;
-      let index = 0;
-      let arr = [...self.start, ...self.end];
-      let len = arr.length;
+  let obj={
+    start:[1,3,2],
+    end:[7,9,8],
+    [Symbol.iterator](){
+      let self=this;
+      let index=0;
+      let arr=self.start.concat(self.end);
+      let len=arr.length;
       return {
-        next() {
-          if (index < len) {
+        next(){
+          if(index<len){
             return {
-              value: arr[index++],
-              done: false
+              value:arr[index++],
+              done:false
             }
-          } else {
+          }else{
             return {
-              value: arr[index++],
-              done: true
+              value:arr[index++],
+              done:true
             }
           }
         }
       }
     }
-  };
-  for (let key of obj) {
+  }
+  for(let key of obj){
     console.log(key);
   }
 }
 
 {
-  let arr = ['hello', 'world'];
-  for (let value of arr) {
-    console.log(value);
+  let arr=['hello','world'];
+  for(let value of arr){
+    console.log('value',value);
   }
 }
