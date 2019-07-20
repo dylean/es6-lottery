@@ -10020,9 +10020,9 @@
 	    key: 'changePlayNav',
 	    value: function changePlayNav(e) {
 	      var self = this;
-	      var $cur = (0, _jquery2.default)(e.currentTarget);
+	      var $cur = (0, _jquery2.default)(e.currentTarget); //涉及事件委托
 	      $cur.addClass('active').siblings().removeClass('active');
-	      self.cur_play = $cur.attr('desc').toLocaleLowerCase();
+	      self.cur_play = $cur.attr('desc').toLocaleLowerCase(); //转成小写
 	      (0, _jquery2.default)('#zx_sm span').html(self.play_list.get(self.cur_play).tip);
 	      (0, _jquery2.default)('.boll-list .btn-boll').removeClass('btn-boll-active');
 	      self.getCount();
@@ -10037,7 +10037,7 @@
 	  }, {
 	    key: 'assistHandle',
 	    value: function assistHandle(e) {
-	      e.preventDefault();
+	      e.preventDefault(); //阻止默认事件
 	      var self = this;
 	      var $cur = (0, _jquery2.default)(e.currentTarget);
 	      var index = $cur.index();
@@ -10061,14 +10061,14 @@
 	      }
 	      if (index === 3) {
 	        (0, _jquery2.default)('.boll-list .btn-boll').each(function (i, t) {
-	          if (t.textContent % 2 == 1) {
+	          if (t.textContent % 2 === 1) {
 	            (0, _jquery2.default)(t).addClass('btn-boll-active');
 	          }
 	        });
 	      }
 	      if (index === 4) {
 	        (0, _jquery2.default)('.boll-list .btn-boll').each(function (i, t) {
-	          if (t.textContent % 2 == 0) {
+	          if (t.textContent % 2 === 0) {
 	            (0, _jquery2.default)(t).addClass('btn-boll-active');
 	          }
 	        });
@@ -10107,7 +10107,7 @@
 	     * [addCodeItem 添加单次号码]
 	     * @param {[type]} code     [description]
 	     * @param {[type]} type     [description]
-	     * @param {[type]} typeName [description]
+	     * @param {[ type]} typeName [description]
 	     * @param {[type]} count    [description]
 	     */
 

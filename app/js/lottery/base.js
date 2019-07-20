@@ -103,9 +103,9 @@ class Base {
    */
   changePlayNav(e) {
     let self = this;
-    let $cur = $(e.currentTarget);
+    let $cur = $(e.currentTarget);//涉及事件委托
     $cur.addClass('active').siblings().removeClass('active');
-    self.cur_play = $cur.attr('desc').toLocaleLowerCase();
+    self.cur_play = $cur.attr('desc').toLocaleLowerCase();//转成小写
     $('#zx_sm span').html(self.play_list.get(self.cur_play).tip);
     $('.boll-list .btn-boll').removeClass('btn-boll-active');
     self.getCount();
@@ -117,7 +117,7 @@ class Base {
    * @return {[type]}   [description]
    */
   assistHandle(e) {
-    e.preventDefault();
+    e.preventDefault();//阻止默认事件
     let self = this;
     let $cur = $(e.currentTarget);
     let index = $cur.index();
@@ -141,14 +141,14 @@ class Base {
     }
     if (index === 3) {
       $('.boll-list .btn-boll').each(function (i, t) {
-        if (t.textContent % 2 == 1) {
+        if (t.textContent % 2 === 1) {
           $(t).addClass('btn-boll-active')
         }
       })
     }
     if (index === 4) {
       $('.boll-list .btn-boll').each(function (i, t) {
-        if (t.textContent % 2 == 0) {
+        if (t.textContent % 2 === 0) {
           $(t).addClass('btn-boll-active')
         }
       })
