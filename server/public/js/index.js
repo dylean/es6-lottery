@@ -9868,6 +9868,7 @@
 	     * @return {[type]} [description]
 	     */
 	    value: function initPlayList() {
+	      //play_list是map数据结构
 	      this.play_list.set('r2', {
 	        bonus: 6,
 	        tip: '从01～11中任选2个或多个号码，所选号码与开奖号码任意两个号码相同，即中奖<em class="red">6</em>元',
@@ -9890,7 +9891,7 @@
 	        name: '任六'
 	      }).set('r7', {
 	        bonus: 26,
-	        tip: '从01～11中任选7个或多个号码，选号与奖号五个号相同，即中奖<em class="red">26</em>元',
+	        tip: '从01～11中任选7个或多个号码，选号与奖号五个号相同，即中奖<em class="red">26</em><元></元>',
 	        name: '任七'
 	      }).set('r8', {
 	        bonus: 9,
@@ -9898,6 +9899,7 @@
 	        name: '任八'
 	      });
 	    }
+
 	    /**
 	     * [initNumber 初始化号码]
 	     * @return {[type]} [description]
@@ -9907,13 +9909,14 @@
 	    key: 'initNumber',
 	    value: function initNumber() {
 	      for (var i = 1; i < 12; i++) {
-	        this.number.add(('' + i).padStart(2, '0'));
+	        //number是set数据结构，投注号码不可能重复
+	        this.number.add(('' + i).padStart(2, '0')); //保持两位长度，不够在起始+0
 	      }
 	    }
 
 	    /**
 	     * [setOmit 设置遗漏数据]
-	     * @param {[type]} omit [description]
+	     * @param {[map]} omit [description]
 	     */
 
 	  }, {
@@ -9955,7 +9958,8 @@
 
 	    /**
 	     * [setOpenCode 设置开奖]
-	     * @param {[type]} code [description]
+	     * @param {[set]} code [description]
+	     * 开奖号码是不重复的
 	     */
 
 	  }, {
