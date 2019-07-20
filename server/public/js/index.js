@@ -9681,6 +9681,7 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var copyProperties = function copyProperties(target, source) {
+	  //深度拷贝
 	  var _iteratorNormalCompletion = true;
 	  var _didIteratorError = false;
 	  var _iteratorError = undefined;
@@ -9688,9 +9689,9 @@
 	  try {
 	    for (var _iterator = Reflect.ownKeys(source)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	      var key = _step.value;
-
+	      //选择性拷贝
 	      if (key !== 'constructor' && key !== 'prototype' && key !== 'name') {
-	        var desc = Object.getOwnPropertyDescriptor(source, key);
+	        var desc = Object.getOwnPropertyDescriptor(source, key); //从原对象拿到
 	        Object.defineProperty(target, key, desc);
 	      }
 	    }
@@ -9710,6 +9711,8 @@
 	  }
 	};
 
+	//实现类的多重继承
+	//多重继承的方法
 	var mix = function mix() {
 	  var Mix = function Mix() {
 	    _classCallCheck(this, Mix);
@@ -9724,11 +9727,12 @@
 	  var _iteratorError2 = undefined;
 
 	  try {
+
 	    for (var _iterator2 = mixins[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	      var mixin = _step2.value;
 
-	      copyProperties(Mix, mixin);
-	      copyProperties(Mix.prototype, mixin.prototype);
+	      copyProperties(Mix, mixin); //深度拷贝
+	      copyProperties(Mix.prototype, mixin.prototype); //拷贝原型
 	    }
 	  } catch (err) {
 	    _didIteratorError2 = true;
@@ -9766,21 +9770,21 @@
 	    _this.issue = issue;
 	    _this.state = state;
 	    _this.el = '';
-	    _this.omit = new Map();
-	    _this.open_code = new Set();
-	    _this.open_code_list = new Set();
-	    _this.play_list = new Map();
-	    _this.number = new Set();
-	    _this.issue_el = '#curr_issue';
-	    _this.countdown_el = '#countdown';
-	    _this.state_el = '.state_el';
-	    _this.cart_el = '.codelist';
-	    _this.omit_el = '';
-	    _this.cur_play = 'r5';
-	    _this.initPlayList();
-	    _this.initNumber();
-	    _this.updateState();
-	    _this.initEvent();
+	    _this.omit = new Map(); //遗漏
+	    _this.open_code = new Set(); //开奖号码
+	    _this.open_code_list = new Set(); //开奖记录
+	    _this.play_list = new Map(); //玩法列表
+	    _this.number = new Set(); //选号
+	    _this.issue_el = '#curr_issue'; //期号选择器
+	    _this.countdown_el = '#countdown'; //倒计时选择器
+	    _this.state_el = '.state_el'; //状态选择器
+	    _this.cart_el = '.codelist'; //购物车选择器
+	    _this.omit_el = ''; //遗漏选择器
+	    _this.cur_play = 'r5'; //默认玩法
+	    _this.initPlayList(); //玩法列表初始化
+	    _this.initNumber(); //选号初始化
+	    _this.updateState(); //状态更新
+	    _this.initEvent(); //事件初始化
 	    return _this;
 	  }
 
@@ -9795,17 +9799,22 @@
 	    value: function updateState() {
 	      var self = this;
 	      this.getState().then(function (res) {
-	        self.issue = res.issue;
-	        self.end_time = res.end_time;
-	        self.state = res.state;
-	        (0, _jquery2.default)(self.issue_el).text(res.issue);
+	        self.issue = res.issue; //当前最新期号
+	        self.end_time = res.end_time; //最新销售截止时间
+	        self.state = res.state; //当前状态
+	        (0, _jquery2.default)(self.issue_el).text(res.issue); //更新当前期号
 	        self.countdown(res.end_time, function (time) {
+	          //倒计时更新
 	          (0, _jquery2.default)(self.countdown_el).html(time);
 	        }, function () {
 	          setTimeout(function () {
-	            self.updateState();
-	            self.getOmit(self.issue).then(function (res) {});
-	            self.getOpenCode(self.issue).then(function (res) {});
+	            self.updateState(); //重新获取最新的销售状态
+	            self.getOmit(self.issue).then(function (res) {//获取最新遗漏
+
+	            });
+	            self.getOpenCode(self.issue).then(function (res) {//更新奖号
+
+	            });
 	          }, 500);
 	        });
 	      });
@@ -9820,7 +9829,7 @@
 	    key: 'initEvent',
 	    value: function initEvent() {
 	      var self = this;
-	      (0, _jquery2.default)('#plays').on('click', 'li', self.changePlayNav.bind(self));
+	      (0, _jquery2.default)('#plays').on('click', 'li', self.changePlayNav.bind(self)); //bind绑定this指针指向
 	      (0, _jquery2.default)('.boll-list').on('click', '.btn-boll', self.toggleCodeActive.bind(self));
 	      (0, _jquery2.default)('#confirm_sel_code').on('click', self.addCode.bind(self));
 	      (0, _jquery2.default)('.dxjo').on('click', 'li', self.assistHandle.bind(self));
@@ -10107,7 +10116,7 @@
 	     * [addCodeItem 添加单次号码]
 	     * @param {[type]} code     [description]
 	     * @param {[type]} type     [description]
-	     * @param {[ type]} typeName [description]
+	     * @param {[type]} typeName [description]
 	     * @param {[type]} count    [description]
 	     */
 
@@ -10127,8 +10136,8 @@
 	      var count = self.computeCount(active, self.cur_play);
 	      var range = self.computeBonus(active, self.cur_play);
 	      var money = count * 2;
-	      var win1 = range[0] - money;
-	      var win2 = range[1] - money;
+	      var win1 = range[0] - money; //最小盈利额
+	      var win2 = range[1] - money; //最大盈利额
 	      var tpl = void 0;
 	      var c1 = win1 < 0 && win2 < 0 ? Math.abs(win1) : win1;
 	      var c2 = win1 < 0 && win2 < 0 ? Math.abs(win2) : win2;
@@ -10169,7 +10178,7 @@
 	    value: function getRandom(num) {
 	      var arr = [],
 	          index = void 0;
-	      var number = Array.from(this.number);
+	      var number = Array.from(this.number); //将集合转成数组
 	      while (num--) {
 	        index = Number.parseInt(Math.random() * number.length);
 	        arr.push(number[index]);

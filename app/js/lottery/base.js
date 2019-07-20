@@ -205,8 +205,8 @@ class Base {
     let count = self.computeCount(active, self.cur_play);
     let range = self.computeBonus(active, self.cur_play);
     let money = count * 2;
-    let win1 = range[0] - money;
-    let win2 = range[1] - money;
+    let win1 = range[0] - money;//最小盈利额
+    let win2 = range[1] - money;//最大盈利额
     let tpl;
     let c1 = (win1 < 0 && win2 < 0) ? Math.abs(win1) : win1;
     let c2 = (win1 < 0 && win2 < 0) ? Math.abs(win2) : win2;
@@ -226,7 +226,6 @@ class Base {
 			元</em>`
     }
     $('.sel_info').html(tpl);
-
   }
 
   /**
@@ -249,7 +248,7 @@ class Base {
    */
   getRandom(num) {
     let arr = [], index;
-    let number = Array.from(this.number);
+    let number = Array.from(this.number);//将集合转成数组
     while (num--) {
       index = Number.parseInt(Math.random() * number.length);
       arr.push(number[index]);
