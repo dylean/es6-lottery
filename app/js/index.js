@@ -1,4 +1,4 @@
 import 'babel-polyfill';
 import Lottery from './lottery';
 
-const syy=new Lottery();
+const syy = new Lottery();
